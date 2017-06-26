@@ -22,6 +22,8 @@ export default {
   })
 }
 
+setStyles()
+
 function registerSW() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -109,4 +111,11 @@ function rmClass(el, clas) {
     return 1
   }
   return 0
+}
+
+function setStyles() {
+  var s = document.createElement('link')
+  s.rel = 'stylesheet'
+  s.href = 'https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css'
+  document.querySelector('head').appendChild(s)
 }
