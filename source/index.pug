@@ -9,17 +9,17 @@ html(lang='en')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css')
     link(rel='shortcut icon' href='favicon.ico')
   body
-    .tab.tab-block
+    #navigation.tab.tab-block
       .tab-item.active 
-        a(href="#!/") News
+        a(href="#!/", data-link='news') News
       .tab-item
-        a(href="#!/newest/1") Newest
+        a(href="#!/newest/1", data-link='newest') Newest
       .tab-item
-        a(href="#!/ask/0") Ask
+        a(href="#!/ask/1", data-link='ask') Ask
       .tab-item
-        a(href="#!/show/0") Show
+        a(href="#!/show/1", data-link='show') Show
       .tab-item
-        a(href="#!/jobs/0") Jobs
+        a(href="#!/jobs/1", data-link='jobs') Jobs
     #container
     script(src='https://unpkg.com/mithril@1.1.1/mithril.min.js')
     script(src='main.js')
