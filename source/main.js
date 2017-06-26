@@ -55,6 +55,9 @@ function navActive() {
   var items = nav.querySelectorAll('.tab-item')
   nav.addEventListener('click', navActiveToggle.bind(items))
   var link = location.hash.substr(3).replace(/\/.*/, '')
+  if (link == '') {
+    link = 'news'
+  }
   var actual = nav.querySelector('a[data-link=' + link + ']')
   navActiveToggle.call(items, {target: actual})
 }
@@ -64,12 +67,10 @@ function navActiveToggle(ev) {
     rmClass(this[i], 'active')
   }
   var target = ev.target
-  _l(target)
   if (!target) {
     return
   }
   var tag = target.tagName.toLowerCase()
-  _l(target.parentNode)
   if (tag == 'a') {
     adClass(target.parentNode, 'active')
   }
