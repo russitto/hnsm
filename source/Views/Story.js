@@ -25,7 +25,7 @@ export default function (type) {
       var ret = []
       for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i]
-        ret.push(m('h4', m('a[href=' + item.url + '][target=_blank]', item.title)))
+        ret.push(m('h4', m('a[href=' + item.url + '][target=_blank][rel=noopener]', item.title)))
       }
       return ret
     }
