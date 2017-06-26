@@ -1,4 +1,6 @@
 pages:
+  script:
+    - id
   stage: deploy
   artifacts:
     paths:
