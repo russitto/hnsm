@@ -1,13 +1,12 @@
 var root = document.getElementById('container')
-var _l = console.log.bind(console) // eslint-disable-line no-console
-
 redirToHttps()
 registerSW()
 navActive()
 
 import Story from './Views/Story.js'
 import User from './Views/User.js'
-import Comments from './Views/Comments.js'
+import Item from './Views/Item.js'
+import u from './utils.js'
 
 export default {
   router: m.route(root, '/', {
@@ -18,7 +17,7 @@ export default {
     '/show/:page'  : Story('show'),
     '/jobs/:page'  : Story('jobs'),
     '/user/:user'  : User,
-    '/comm/:item'  : Comments,
+    '/item/:id'    : Item
   })
 }
 
@@ -29,10 +28,10 @@ function registerSW() {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('sw.js').then(function(registration) {
         // Registration was successful
-        _l('ServiceWorker registration successful with scope: ', registration.scope)
+        u.log('ServiceWorker registration successful with scope: ', registration.scope)
       }, function(err) {
         // registration failed :(
-        _l('ServiceWorker registration failed: ', err)
+        u.log('ServiceWorker registration failed: ', err)
       })
     })
   }
@@ -64,7 +63,7 @@ function navActive() {
 
 function navActiveToggle(ev) {
   for (var i = 0, l = this.length; i < l; i++) {
-    rmClass(this[i], 'active')
+    u.rmClass(this[i], 'active')
   }
   var target = ev.target
   if (!target) {
@@ -72,46 +71,8 @@ function navActiveToggle(ev) {
   }
   var tag = target.tagName.toLowerCase()
   if (tag == 'a') {
-    adClass(target.parentNode, 'active')
+    u.adClass(target.parentNode, 'active')
   }
-}
-
-function adClass(el, clas) {
-  var actual = el.className.trim()
-  if (actual == '') {
-    el.className = clas
-    return 1
-  }
-  if (actual == clas) {
-    return 0
-  }
-  if (actual.indexOf(' ' + clas) >= 0 || actual.indexOf(clas + ' ') >= 0) {
-    return 0
-  }
-  el.className += ' ' + clas
-  return 1
-}
-
-function rmClass(el, clas) {
-  var actual = el.className.trim()
-  if (actual == '') {
-    return 0
-  }
-  if (actual == clas) {
-    el.className = ''
-    return 0
-  }
-  var t = ' ' + clas
-  if (actual.indexOf(t) >= 0) {
-    el.className = el.className.replace(t, '')
-    return 1
-  }
-  t = clas + ' '
-  if (actual.indexOf(t) >= 0) {
-    el.className = el.className.replace(t, '')
-    return 1
-  }
-  return 0
 }
 
 function setStyles() {
