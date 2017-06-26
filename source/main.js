@@ -117,6 +117,7 @@ function rmClass(el, clas) {
 function setStyles() {
   var s = document.createElement('link')
   s.rel = 'stylesheet'
-  s.href = 'https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css'
+  // s.href = 'https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css'
+  s.href = 'ext/spectre.css'
   document.querySelector('head').appendChild(s)
 }
