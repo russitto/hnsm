@@ -10,10 +10,12 @@ export default function (type) {
       var page = m.route.param('page') || 1
       var url = config.base + type + '?page=' + page
       var self = this
-      m.request(url)
+      u.request(url)
       .then(function (items) {
+        // u.log('story view', items)
         self.items = items
         self.loading = false
+        m.redraw()
       })
     },
     view: function () {

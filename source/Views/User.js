@@ -9,7 +9,7 @@ export default  {
     var user = m.route.param('user')
     var url = config.base + 'user/' + user
     var self = this
-    m.request(url)
+    u.request(url)
     .then(function (user) {
       self.user = user
       self.loading = false

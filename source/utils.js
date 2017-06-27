@@ -5,6 +5,7 @@ export default {
   comms2dom: comms2dom,
   adClass: adClass,
   rmClass: rmClass,
+  request: request,
   log: log
 }
 
@@ -101,4 +102,32 @@ function rmClass(el, clas) {
     return 1
   }
   return 0
+}
+
+var cachePrefix = 'hnsm-'
+
+function request(url) {
+  var cache
+  var st = sessionStorage 
+  if (st) {
+    cache = st.getItem(cachePrefix + url)
+    if (cache) {
+      try {
+        var data = JSON.parse(cache)
+        log('cache', data)
+        return new Promise(function (resolve) {
+          resolve(data)
+        })
+      } catch (e) {
+        log(e)
+      }
+    }
+  }
+  return m.request(url)
+  .then(function (data) {
+    if (st) {
+      st.setItem(cachePrefix + url, JSON.stringify(data))
+    }
+    return data
+  })
 }
