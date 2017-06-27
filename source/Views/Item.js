@@ -9,7 +9,7 @@ export default {
     var id = m.route.param('id')
     var url = config.base + 'item/' + id
     var self = this
-    u.request(url)
+    u.request({url: url, cache: false})
     .then(function (it) {
       self.item = it
       self.loading = false

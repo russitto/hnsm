@@ -107,9 +107,16 @@ function rmClass(el, clas) {
 var cachePrefix = 'hnsm-'
 
 function request(url) {
+  var getCached = true
+  if ((typeof url).toLowerCase() == 'object') {
+    if ('cache' in url) {
+      getCached = url.cache
+    }
+    url = url.url
+  }
   var cache
   var st = sessionStorage 
-  if (st) {
+  if (st && getCached) {
     cache = st.getItem(cachePrefix + url)
     if (cache) {
       try {
