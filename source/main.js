@@ -51,6 +51,16 @@ function redirToHttps() {
 
 function navActive() {
   var nav = document.getElementById('navigation')
+  nav.style.marginTop = 0
+  var theme = document.querySelector('head meta[name=theme-color]')
+  var tColor
+  if (theme) {
+    tColor = theme.getAttribute('content')
+    if (tColor) {
+      nav.style.backgroundColor = tColor
+    }
+  }
+
   var items = nav.querySelectorAll('.tab-item')
   nav.addEventListener('click', navActiveToggle.bind(items))
   var link = location.hash.substr(3).replace(/\/.*/, '')

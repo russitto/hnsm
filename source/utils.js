@@ -31,7 +31,7 @@ function items2dom(items) {
     subline.push(m('span.time', item.time_ago))
     var columns = []
     for (var j = 0, ll = subline.length; j < ll; j++) {
-      columns.push(m('.column.col-' + (12/ll), subline[j]))
+      columns.push(m('.text-center.column.col-' + (12/ll), subline[j]))
     }
 
     var st = m('.news-item', [
