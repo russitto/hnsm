@@ -21,7 +21,7 @@ export default {
   })
 }
 
-setStyles()
+// setStyles()
 
 function registerSW() {
   if ('serviceWorker' in navigator) {
