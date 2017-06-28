@@ -51,7 +51,6 @@ function redirToHttps() {
 
 function navActive() {
   var nav = document.getElementById('navigation')
-  nav.style.marginTop = 0
   var theme = document.querySelector('head meta[name=theme-color]')
   var tColor
   if (theme) {

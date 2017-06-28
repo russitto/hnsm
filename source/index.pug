@@ -1,3 +1,7 @@
+- var css = 'main.css'
+- var cssExt = 'https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css'
+- var js = 'main.js'
+- var jsExt = 'https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.min.js'
 doctype html
 html(lang='en')
   head
@@ -7,13 +11,21 @@ html(lang='en')
     title Hacker News :: mithril + spectre
     meta(name='theme-color', content='#c6caeb')
     link(rel='shortcut icon' href='favicon.ico')
-    style
-      include ../node_modules/spectre.css/dist/spectre.min.css
+    link(rel='stylesheet' href=cssExt)
+    link(rel='preload', as='style' href=cssExt)
+    link(rel='stylesheet' href=css)
+    link(rel='preload', as='style' href=css)
+
     //- link(rel='stylesheet' href='ext/spectre.css')
+    //- style
+    //-   include ../node_modules/spectre.css/dist/spectre.min.css
+    //-   include ../public/main.css
+    link(rel='preload', as='script' href=jsExt)
+    link(rel='preload', as='script' href=js)
   body
     #navigation.tab.tab-block
       .tab-item.active 
-        a(href="#!/", data-link='news') News
+        a(href="#!/", data-link='news') Top
       .tab-item
         a(href="#!/newest/1", data-link='newest') Newest
       .tab-item
@@ -23,6 +35,6 @@ html(lang='en')
       .tab-item
         a(href="#!/jobs/1", data-link='jobs') Jobs
     #container
-    script(src='https://unpkg.com/mithril@1.1.1/mithril.min.js')
+    script(src=jsExt)
     //- script(src='ext/mithril.js')
-    script(src='main.js')
+    script(src=js)

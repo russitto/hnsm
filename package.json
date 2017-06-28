@@ -1,9 +1,10 @@
 {
   "version": "0.2.0",
   "scripts": {
-    "start": "npm run tpl && npm run js",
+    "start": "npm run css && npm run tpl && npm run js",
     "tpl": "pug -o public source/index*.pug",
     "js": "rollup -c",
+    "css": "sassc -t compressed source/main.scss public/main.css",
     "js-sw": "rollup -c worker.rollup.cfg.js"
   },
   "devDependencies": {

@@ -1,0 +1,10 @@
+#navigation.tab {
+  margin-top: 0;
+  .tab-item.active a {
+    color: #000;
+    font-weight: bold;
+  }
+  .tab-item a {
+    color: #000;
+  }
+}

@@ -6,6 +6,20 @@
       ".firebaserc",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "img/*.@(jpg|jpeg|gif|png)",
+        "headers" : [{"key": "Cache-Control", "value": "max-age=2628000"}]
+      },
+      {
+        "source": "favicon.ico",
+        "headers" : [{"key": "Cache-Control", "value": "max-age=2628000"}]
+      },
+      {
+        "source": "*.@(css|js|json)",
+        "headers" : [{"key": "Cache-Control", "value": "max-age=2628000"}]
+      }
     ]
   }
 }

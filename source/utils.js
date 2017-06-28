@@ -121,7 +121,6 @@ function request(url) {
     if (cache) {
       try {
         var data = JSON.parse(cache)
-        log('cache', data)
         return new Promise(function (resolve) {
           resolve(data)
         })
