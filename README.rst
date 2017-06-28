@@ -2,6 +2,12 @@
 Hacker News web client
 ======================
 
+----
+Demo
+----
+
+https://hnsm-66e89.firebaseapp.com/
+
 ------------
 Tools & libs
 ------------
