@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "start": "npm run css && npm run tpl && npm run js",
     "tpl": "pug -o public source/index*.pug",
@@ -8,6 +8,8 @@
     "js-sw": "rollup -c worker.rollup.cfg.js"
   },
   "devDependencies": {
+    "pug": "^2.0.0-rc.2",
+    "rollup": "^0.43.0",
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
