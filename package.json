@@ -8,7 +8,7 @@
     "js-sw": "rollup -c worker.rollup.cfg.js"
   },
   "devDependencies": {
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.2",
     "rollup": "^0.43.0",
     "rollup-plugin-uglify": "^2.0.1"
   },
